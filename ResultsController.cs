@@ -17,8 +17,6 @@ public class ResultsController : ControllerBase
 
     private int UserId => int.Parse(User.FindFirstValue(ClaimTypes.NameIdentifier)!);
 
-    /// <summary>Record a finish time and position for an enrolment. Organisers only.</summary>
-    /// <remarks>Expects enrolment id, finish time (hh:mm:ss) and position.</remarks>
     [HttpPost]
     [Authorize(Roles = "Organiser")]
     public async Task<IActionResult> Create(ResultDto dto)
